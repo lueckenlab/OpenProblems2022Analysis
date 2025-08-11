@@ -1,0 +1,16 @@
+,model,score
+0,default_model,0.578193
+1,decoder_depth_1,0.576332
+2,decoder_depth_3,0.576902
+3,width_1024,0.576261
+4,activation_relu,0.577929
+5,batch_norm,0.578124
+6,no_norm,0.5763
+7,no_mse,0.578193
+8,no_second_head,0.578193
+9,no_first_head,0.577927
+10,no_first_head_decoder_depth_1,0.577572
+11,no_first_head_no_mse_decoder_depth_1,0.574919
+12,no_first_head_no_mse,0.577547
+13,no_input_median_div,0.576977
+14,no_target_median_div,0.576961
