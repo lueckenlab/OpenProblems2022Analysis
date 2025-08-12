@@ -1,0 +1,6 @@
+model,score
+Shuji Suzuki O1M1,0.577
+Guanlab,0.565
+kNN-LSI,0.52
+kNN-tSVD,0.517
+multiVI,0.287

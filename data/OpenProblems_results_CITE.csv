@@ -1,0 +1,5 @@
+model,score
+Senkin & tmp O2C1,0.847
+Guanlab,0.835
+kNN,0.817
+totalVI,0.441
