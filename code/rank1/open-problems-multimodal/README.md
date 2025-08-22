@@ -24,10 +24,10 @@ python3 script/make_cite_input_mask.py --data_dir ${DATA_DIR} --hgnc_complete_se
 ## Training
 ### Multi
 ```shell
-python3 scripts/train_model.py --data_dir ${DATA_DIR} --task_type multi 
+python3 script/train_model.py --data_dir ${DATA_DIR} --task_type multi 
 ```
 
 ### Cite
 ```shell
-python3 scripts/train_model.py --data_dir ${DATA_DIR} --task_type cite 
+python3 script/train_model.py --data_dir ${DATA_DIR} --task_type cite 
 ```
