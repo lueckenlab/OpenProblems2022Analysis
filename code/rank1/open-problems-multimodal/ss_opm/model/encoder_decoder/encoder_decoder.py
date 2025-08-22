@@ -190,6 +190,12 @@ class EncoderDecoder(object):
         self.inputs_info["x_dim"] = preprocessed_x.shape[1]
         self.inputs_info["y_dim"] = preprocessed_y.shape[1]
 
+        cols_with_nan = metadata.columns[metadata.isna().sum() > 0]
+        if len(cols_with_nan) > 0:
+            print("There are columns with NaNs:", cols_with_nan)
+            print("Replacing NaNs with zeros")
+            metadata = metadata.replace(np.nan, 0.0)
+
         dataset = self._build_dataset(
             x=x, preprocessed_x=preprocessed_x, metadata=metadata, y=y, preprocessed_y=preprocessed_y, eval=False
         )
@@ -323,6 +329,13 @@ class EncoderDecoder(object):
             torch.cuda.empty_cache()
         self.model = self.model.to(self.params["device"])
         self.model.eval()
+
+        cols_with_nan = metadata.columns[metadata.isna().sum() > 0]
+        if len(cols_with_nan) > 0:
+            print("There are columns with NaNs:", cols_with_nan)
+            print("Replacing NaNs with zeros")
+            metadata = metadata.replace(np.nan, 0.0)
+
         dataset = self._build_dataset(
             x=x, preprocessed_x=preprocessed_x, metadata=metadata, y=None, preprocessed_y=None, eval=True
         )
