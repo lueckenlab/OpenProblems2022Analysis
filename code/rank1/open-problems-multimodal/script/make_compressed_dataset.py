@@ -64,18 +64,35 @@ def main():
     os.makedirs(output_data_dir, exist_ok=True)
     file_prefixes = ["evaluation_ids", "metadata", "sample_submission"]
     for file_prefix in file_prefixes:
-        convert_to_parquet(os.path.join(data_dir, f"{file_prefix}.csv"), os.path.join(output_data_dir, file_prefix))
-    file_prefixes = [
-        "test_cite_inputs",
+        file_path = os.path.join(data_dir, f"{file_prefix}.csv")
+        if os.path.exists(file_path):
+            convert_to_parquet(file_path, os.path.join(output_data_dir, file_prefix))
+        else:
+            print(f"File {file_path} does not exist")
+
+
+    multiome_files = [
         "test_multi_inputs",
-        "train_cite_inputs",
-        "train_cite_targets",
         "train_multi_inputs",
         "train_multi_targets",
     ]
-    for file_prefix in file_prefixes:
-        convert_h5_to_sparse_csr(os.path.join(data_dir, f"{file_prefix}.h5"), os.path.join(output_data_dir, file_prefix))
+    citeseq_files = [
+        "test_cite_inputs",
+        "train_cite_inputs",
+        "train_cite_targets",
+    ]
+    file_prefixes = multiome_files + citeseq_files
 
+    all_multiome_files_exist = all(os.path.exists(os.path.join(data_dir, f"{file}.h5")) for file in multiome_files)
+    all_citeseq_files_exist = all(os.path.exists(os.path.join(data_dir, f"{file}.h5")) for file in citeseq_files)
+    assert (all_multiome_files_exist or all_citeseq_files_exist), "All files at leastfor one modality MUST exist, so make sure you have all the files"
+
+    for file_prefix in file_prefixes:
+        file_path = os.path.join(data_dir, f"{file_prefix}.h5")
+        if os.path.exists(file_path):
+            convert_h5_to_sparse_csr(file_path, os.path.join(output_data_dir, file_prefix))
+        else:
+            print(f"File {file_path} does not exist")
 
 if __name__ == "__main__":
     main()
