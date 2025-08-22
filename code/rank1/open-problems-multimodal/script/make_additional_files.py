@@ -29,7 +29,7 @@ def make_cite_cell_statistics(data_dir, output_data_dir):
     for i in range(len(cite_input_index)):
         row_nonzero_values = cite_values.data[cite_values.indptr[i] : cite_values.indptr[i + 1]]
         nonzero_ratios[i] = len(row_nonzero_values) / cite_values.shape[1]
-        q_values = np.quantile(row_nonzero_values, q=[0.25, 0.5, 0.75])
+        q_values = np.nanquantile(row_nonzero_values, q=[0.25, 0.5, 0.75])
         nonzero_q25[i] = q_values[0]
         nonzero_q50[i] = q_values[1]
         nonzero_q75[i] = q_values[2]
@@ -92,7 +92,7 @@ def make_multi_cell_statistics(data_dir, output_data_dir):
     for i in range(len(multi_input_index)):
         row_nonzero_values = multi_values.data[multi_values.indptr[i] : multi_values.indptr[i + 1]]
         nonzero_ratios[i] = np.log1p(len(row_nonzero_values) / multi_values.shape[1])
-        q_values = np.quantile(row_nonzero_values, q=[0.25, 0.5, 0.75])
+        q_values = np.nanquantile(row_nonzero_values, q=[0.25, 0.5, 0.75])
         nonzero_q25[i] = q_values[0]
         nonzero_q50[i] = q_values[1]
         nonzero_q75[i] = q_values[2]
@@ -254,14 +254,27 @@ def main():
     group_ids = get_group_id(metadata)
     metadata["group"] = group_ids
 
-    make_multi_cell_statistics(data_dir=data_dir, output_data_dir=output_data_dir)
-    make_cite_cell_statistics(data_dir=data_dir, output_data_dir=output_data_dir)
+    multiome_files = [
+        "train_multi_inputs_values",
+        "test_multi_inputs_values",
+    ]
+    citeseq_files = [
+        "train_cite_inputs",
+        "test_cite_inputs",
+    ]
 
-    make_multi_batch_statistics(metadata=metadata, output_data_dir=output_data_dir)
-    make_cite_batch_statistics(metadata=metadata, output_data_dir=output_data_dir)
+    if all(os.path.exists(os.path.join(data_dir, f"{file}.sparse.npz")) for file in multiome_files):
+        make_multi_cell_statistics(data_dir=data_dir, output_data_dir=output_data_dir)
+        make_multi_batch_statistics(metadata=metadata, output_data_dir=output_data_dir)
+    else:
+        print("Some multiome files don't exist, not making multiome cell statistics")
 
-    make_cite_batch_inputs_median(data_dir=data_dir, metadata=metadata, output_data_dir=output_data_dir)
-
+    if all(os.path.exists(os.path.join(data_dir, f"{file}.sparse.npz")) for file in citeseq_files):
+        make_cite_cell_statistics(data_dir=data_dir, output_data_dir=output_data_dir)
+        make_cite_batch_statistics(metadata=metadata, output_data_dir=output_data_dir)
+        make_cite_batch_inputs_median(data_dir=data_dir, metadata=metadata, output_data_dir=output_data_dir)
+    else:
+        print("Some citeseq files don't exist, not making citeseq cell statistics")
 
 if __name__ == "__main__":
     main()
