@@ -93,8 +93,18 @@ class PrePostProcessing(object):
             transformed_targets_values = transformed_targets_values.toarray()
         if transformed_targets_values is not None:
             if self.params["task_type"] == "multi":
-                transformed_targets_values = row_values_clip(transformed_targets_values, min_q=0.0, max_q=0.99)
+                quantiles = np.nanquantile(transformed_targets_values, [0.0, 0.99], axis=0)
+                if (quantiles[0] == quantiles[1]).any():
+                    print("Changing upper quantile to 0.999")
+                    max_q = 0.999
+                else:
+                    max_q = 0.99
+                transformed_targets_values = row_values_clip(transformed_targets_values, min_q=0.0, max_q=max_q)
                 transformed_targets_values = np.log1p(median_normalize(np.expm1(transformed_targets_values)))
+                # Substitute infs and nansto 0
+                transformed_targets_values[np.isnan(transformed_targets_values)] = 0.0
+                transformed_targets_values[np.isinf(transformed_targets_values)] = 0.0
+
                 if fitting:
                     self.preprocesses["targets_imputator"] = IterativeSVDImputator(iters=1)
                     self.preprocesses["targets_imputator"].fit(transformed_targets_values)
