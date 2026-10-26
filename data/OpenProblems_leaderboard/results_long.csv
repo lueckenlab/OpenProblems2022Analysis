@@ -1367,14 +1367,14 @@ openproblems_neurips2022/pbmc_multiome/swap,OpenProblems NeurIPS2022 Multiome (A
 openproblems_neurips2022/pbmc_multiome/swap,OpenProblems NeurIPS2022 Multiome (ATAC2GEX),ATAC → GEX,random_predict,Random predictions,,True,overall_pearson,Overall pearson,True,0.3567,0.3567
 openproblems_neurips2022/pbmc_multiome/swap,OpenProblems NeurIPS2022 Multiome (ATAC2GEX),ATAC → GEX,random_predict,Random predictions,,True,overall_spearman,Overall spearman,True,0.2994,0.2994
 openproblems_neurips2022/pbmc_multiome/swap,OpenProblems NeurIPS2022 Multiome (ATAC2GEX),ATAC → GEX,random_predict,Random predictions,,True,rmse,RMSE,False,0.5043,0.0
-openproblems_neurips2022/pbmc_multiome/swap,OpenProblems NeurIPS2022 Multiome (ATAC2GEX),ATAC → GEX,scbutterfly,scButterfly,,False,mae,MAE,False,0.1742,0.16490891658676898
-openproblems_neurips2022/pbmc_multiome/swap,OpenProblems NeurIPS2022 Multiome (ATAC2GEX),ATAC → GEX,scbutterfly,scButterfly,,False,mean_pearson_per_cell,Mean pearson per cell,True,0.6062,0.6062
-openproblems_neurips2022/pbmc_multiome/swap,OpenProblems NeurIPS2022 Multiome (ATAC2GEX),ATAC → GEX,scbutterfly,scButterfly,,False,mean_pearson_per_gene,Mean pearson per gene,True,0.1267,0.14055913024184602
-openproblems_neurips2022/pbmc_multiome/swap,OpenProblems NeurIPS2022 Multiome (ATAC2GEX),ATAC → GEX,scbutterfly,scButterfly,,False,mean_spearman_per_cell,Mean spearman per cell,True,0.4335,0.4335
-openproblems_neurips2022/pbmc_multiome/swap,OpenProblems NeurIPS2022 Multiome (ATAC2GEX),ATAC → GEX,scbutterfly,scButterfly,,False,mean_spearman_per_gene,Mean spearman per gene,True,0.1207,0.13390281783891725
-openproblems_neurips2022/pbmc_multiome/swap,OpenProblems NeurIPS2022 Multiome (ATAC2GEX),ATAC → GEX,scbutterfly,scButterfly,,False,overall_pearson,Overall pearson,True,0.6034,0.6034
-openproblems_neurips2022/pbmc_multiome/swap,OpenProblems NeurIPS2022 Multiome (ATAC2GEX),ATAC → GEX,scbutterfly,scButterfly,,False,overall_spearman,Overall spearman,True,0.4294,0.4294
-openproblems_neurips2022/pbmc_multiome/swap,OpenProblems NeurIPS2022 Multiome (ATAC2GEX),ATAC → GEX,scbutterfly,scButterfly,,False,rmse,RMSE,False,0.3652,0.2758278802300217
+openproblems_neurips2022/pbmc_multiome/swap,OpenProblems NeurIPS2022 Multiome (ATAC2GEX),ATAC → GEX,scbutterfly,scButterfly,,False,mae,MAE,False,0.1739,0.16634707574304897
+openproblems_neurips2022/pbmc_multiome/swap,OpenProblems NeurIPS2022 Multiome (ATAC2GEX),ATAC → GEX,scbutterfly,scButterfly,,False,mean_pearson_per_cell,Mean pearson per cell,True,0.6072,0.6072
+openproblems_neurips2022/pbmc_multiome/swap,OpenProblems NeurIPS2022 Multiome (ATAC2GEX),ATAC → GEX,scbutterfly,scButterfly,,False,mean_pearson_per_gene,Mean pearson per gene,True,0.1263,0.14011537608165076
+openproblems_neurips2022/pbmc_multiome/swap,OpenProblems NeurIPS2022 Multiome (ATAC2GEX),ATAC → GEX,scbutterfly,scButterfly,,False,mean_spearman_per_cell,Mean spearman per cell,True,0.4339,0.4339
+openproblems_neurips2022/pbmc_multiome/swap,OpenProblems NeurIPS2022 Multiome (ATAC2GEX),ATAC → GEX,scbutterfly,scButterfly,,False,mean_spearman_per_gene,Mean spearman per gene,True,0.1199,0.13301530951852675
+openproblems_neurips2022/pbmc_multiome/swap,OpenProblems NeurIPS2022 Multiome (ATAC2GEX),ATAC → GEX,scbutterfly,scButterfly,,False,overall_pearson,Overall pearson,True,0.6043,0.6043
+openproblems_neurips2022/pbmc_multiome/swap,OpenProblems NeurIPS2022 Multiome (ATAC2GEX),ATAC → GEX,scbutterfly,scButterfly,,False,overall_spearman,Overall spearman,True,0.4295,0.4295
+openproblems_neurips2022/pbmc_multiome/swap,OpenProblems NeurIPS2022 Multiome (ATAC2GEX),ATAC → GEX,scbutterfly,scButterfly,,False,rmse,RMSE,False,0.3648,0.27662105889351574
 openproblems_neurips2022/pbmc_multiome/swap,OpenProblems NeurIPS2022 Multiome (ATAC2GEX),ATAC → GEX,simple_mlp,Simple MLP,,False,mae,MAE,False,0.1978,0.051773729626078624
 openproblems_neurips2022/pbmc_multiome/swap,OpenProblems NeurIPS2022 Multiome (ATAC2GEX),ATAC → GEX,simple_mlp,Simple MLP,,False,mean_pearson_per_cell,Mean pearson per cell,True,0.4975,0.4975
 openproblems_neurips2022/pbmc_multiome/swap,OpenProblems NeurIPS2022 Multiome (ATAC2GEX),ATAC → GEX,simple_mlp,Simple MLP,,False,mean_pearson_per_gene,Mean pearson per gene,True,0.0,0.0
