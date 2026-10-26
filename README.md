@@ -1,6 +1,7 @@
-# OpenProblems2022Analysis
-Analysis of OpenProblems 2022 Kaggle competition on modality prediction in longitudinal single-cell data
 
+# OpenProblems2022Analysis
+
+Analysis of OpenProblems 2022 Kaggle competition on modality prediction in longitudinal single-cell data
 
 # Re-implmentation of the top 3 methods for modality prediction
 
@@ -17,3 +18,10 @@ With example notebooks to run the best models of the Multiome and  CITE-Seq task
 
 # Downstream analysis
 See reproducibility notebooks for figures in `code/`
+
+# Citation
+
+Please refer to our publication:
+```
+Lance, C., Shitov, V. A., Wen, H., Ji, Y., Holderrieth, P., Wu, Y., … Luecken, M. D. (2026). Longitudinal modality prediction learns gene regulatory patterns: insights from a single-cell competition. bioRxiv. doi:10.64898/2026.02.24.707614
+```
